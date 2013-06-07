@@ -1,9 +1,7 @@
 <form action="/events/create" method="post">
-  <ul>
-    <li><input type="text" name="note[organizer_name]" placeholder="name"></li>
-    <li><input type="text" name="note[organizer_email]" placeholder="email"></li>
-    <li><input type="text" name="note[title]" placeholder="event title"></li>
-    <li><input type="text" name="note[name]" placeholder="event date"></li>
-    <li><input type="submit" value="Create Event">
-  </ul>
+  <input class="field" type="text" name="event[organizer_name]" placeholder="name">
+  <input class="field" type="text" name="event[organizer_email]" placeholder="email">
+  <input class="field" type="text" name="event[title]" placeholder="event title">
+  <input class="field" type="text" name="event[date]" placeholder="event date">
+  <input type="submit" value="Create Event">
 </form>

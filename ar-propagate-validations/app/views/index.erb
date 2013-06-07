@@ -1,7 +1,4 @@
 <% @events.each do |event| %>
-  <p>
-    <a class="event" id="<%= event.id %>" href="/events/<%=event.id%>/show"><%=event.date%></a> - <%=event.title%>
-    <div class="description"></div>
-  </p>
+  <%= erb :_event_short, { layout: false, locals: { event: event } } %>
 <% end %>
 
