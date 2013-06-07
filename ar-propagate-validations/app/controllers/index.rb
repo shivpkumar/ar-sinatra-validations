@@ -4,9 +4,12 @@ get '/' do
 end
 
 post '/events/create' do
-  puts params
   event = Event.create(params[:event])
-  erb :_event_short, { layout: false, locals: { event: event } }
+  if event.valid?
+    erb :_event_short, { layout: false, locals: { event: event } }
+  else
+    event.errors.full_messages.join('</br>')
+  end
 end
 
 get '/events/:id/show' do |id|

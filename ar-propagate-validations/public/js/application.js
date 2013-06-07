@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  // $(function(){
+  //   $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).toString();
+  // })
+
   $('.container').delegate('.event', 'click', function(event) {
     event.preventDefault();
     var eventId = $(this).attr('id')
@@ -26,9 +30,17 @@ $(document).ready(function () {
       data: newEventData
     });
 
-    function addEventToDom(eventHtml) {
-      $('.container').append(eventHtml);
-    }
+    function addEventToDom(response) {
+      if(response.substring(0,2) == "<a")
+      {
+        $('.errors').html('');
+        $('.container').append(response);
+      }
+      else 
+      {
+        $('.errors').html(response);
+      }
+    };
 
     request.done(addEventToDom);
   });
