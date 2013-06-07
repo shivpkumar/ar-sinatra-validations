@@ -1,3 +1,11 @@
+.description {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
 .container {
   margin: 20px auto;
   width: 800px;

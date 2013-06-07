@@ -4,8 +4,8 @@ get '/' do
 end
 
 get '/events/:id/show' do |id|
-  @event = Event.find(id)
-  erb :event_show
+  event = Event.find(id)
+  erb :_event_show, { layout: false, locals: { event: event } }
 end
 
 get '/events/new' do

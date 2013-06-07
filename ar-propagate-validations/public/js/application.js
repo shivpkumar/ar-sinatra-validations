@@ -1,10 +1,19 @@
 $(document).ready(function () {
 
-  // send an HTTP DELETE request for the sign-out link
-  $('a#sign-out').on("click", function (e) {
-    e.preventDefault();
-    var request = $.ajax({ url: $(this).attr('href'), type: 'delete' });
-    request.done(function () { window.location = "/"; });
+  $('.event').on('click', function(event) {
+    event.preventDefault();
+    var eventId = $(this).attr('id')
+
+    var request = $.ajax({
+      type: 'get',
+      url: '/events/' + eventId + '/show'
+    });
+
+    function showEventOnDom(eventHtml) {
+      $('.description').html(eventHtml).toggleClass('display');
+    }
+
+    request.done(showEventOnDom);
   });
 
 });
